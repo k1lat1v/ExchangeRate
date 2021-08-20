@@ -15,9 +15,9 @@ public class ExchangeRateServiceImpl implements ExchangeRateService{
     private final SingleRateDAO singleRateDAO;
     private final ExchangeRateDAO exchangeRateDAO;
 
-    // Публичные поля для корректировки максимального и минимального дней в форме, чтобы избежать null
-    public String min;
-    public String max;
+    // Поля для корректировки максимального и минимального дней в форме, чтобы избежать null
+    private String min;
+    private String max;
 
     public ExchangeRateServiceImpl(SingleRateDAO singleRateDAO, ExchangeRateDAO exchangeRateDAO) {
         this.singleRateDAO = singleRateDAO;
