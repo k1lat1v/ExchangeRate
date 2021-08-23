@@ -1,5 +1,7 @@
+<!--
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-->
 <html>
 <head>
     <title>Курс UAH</title>
@@ -15,7 +17,7 @@
             <input type="date" name="date" min="${min}" max="${max}">
             <input type="submit" value="Выбрать" class="btn btn-success">
         </form>
-        <p class="bg-warning rounded">Дата: <c:out value="${date}"/></p>
+        <p class="bg-warning rounded" id="date">Дата: <c:out value="${date}"/></p>
     </div>
 
     <div class="d-flex justify-content-center bg-dark">
@@ -43,5 +45,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
 </body>
 </html>

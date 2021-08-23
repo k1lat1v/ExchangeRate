@@ -1,9 +1,8 @@
 package org.vitalii.service;
 
 import org.vitalii.model.ExchangeRate;
+import org.vitalii.model.SingleRate;
 
-import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,5 +14,6 @@ public interface ExchangeRateService {
     void addExchangeRate(ExchangeRate exchangeRate);
     ExchangeRate find(Long id);
     ExchangeRate findByDate(Date date);
-    List<ExchangeRate> list();
+    List<ExchangeRate> listExchangeRate();
+    List<SingleRate> listSingleRate();
 }

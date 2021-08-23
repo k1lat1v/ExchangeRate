@@ -6,8 +6,6 @@ import org.vitalii.model.ExchangeRate;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 import java.util.List;
 

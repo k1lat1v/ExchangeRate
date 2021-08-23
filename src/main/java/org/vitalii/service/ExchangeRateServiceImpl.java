@@ -5,7 +5,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.vitalii.dao.ExchangeRateDAO;
 import org.vitalii.dao.SingleRateDAO;
 import org.vitalii.model.ExchangeRate;
+import org.vitalii.model.SingleRate;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +20,9 @@ public class ExchangeRateServiceImpl implements ExchangeRateService{
 
     private final SingleRateDAO singleRateDAO;
     private final ExchangeRateDAO exchangeRateDAO;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     // Поля для корректировки максимального и минимального дней в форме, чтобы избежать null
     private String min;
@@ -56,7 +65,12 @@ public class ExchangeRateServiceImpl implements ExchangeRateService{
     }
 
     @Transactional(readOnly = true)
-    public List<ExchangeRate> list() {
+    public List<ExchangeRate> listExchangeRate() {
         return exchangeRateDAO.list();
+    }
+
+    @Transactional(readOnly = true)
+    public List<SingleRate> listSingleRate() {
+        return singleRateDAO.list();
     }
 }

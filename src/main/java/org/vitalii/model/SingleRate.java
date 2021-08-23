@@ -30,6 +30,15 @@ public class SingleRate {
         this.exchangeRate = exchangeRate;
     }
 
+    public SingleRate(String baseCurrency, String currency, double saleRateNB, double purchaseRateNB, double saleRate, double purchaseRate) {
+        this.baseCurrency = baseCurrency;
+        this.currency = currency;
+        this.saleRateNB = saleRateNB;
+        this.purchaseRateNB = purchaseRateNB;
+        this.saleRate = saleRate;
+        this.purchaseRate = purchaseRate;
+    }
+
     public SingleRate() {
     }
 
@@ -107,6 +116,7 @@ public class SingleRate {
                 ", purchaseRateNB=" + purchaseRateNB +
                 ", saleRate=" + saleRate +
                 ", purchaseRate=" + purchaseRate +
+                ", date=" + exchangeRate.getDate() +
                 '}';
     }
 }

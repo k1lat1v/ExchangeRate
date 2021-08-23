@@ -1,16 +1,17 @@
 package org.vitalii.controllers;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.vitalii.model.ExchangeRate;
+import org.vitalii.model.SingleRate;
 import org.vitalii.service.ExchangeRateService;
+import org.vitalii.utils.PdfConvert;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -30,6 +31,13 @@ public class Controller {
         model.addAttribute("exchangeRate", exchangeRateService.findByDate(date).getExchangeRate());
         model.addAttribute("min", exchangeRateService.getMin());
         model.addAttribute("max", exchangeRateService.getMax());
+        List<SingleRate> list = exchangeRateService.listSingleRate();
+        PdfConvert pdfConvert = new PdfConvert(list);
+        try {
+            pdfConvert.createPDF();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "index";
     }
 
@@ -48,6 +56,12 @@ public class Controller {
         }catch (ParseException e){
             e.printStackTrace();
         }
+        return "index";
+    }
+
+    @RequestMapping(value = "/table", method = RequestMethod.POST)
+    public @ResponseBody String table(@RequestBody String rows){
+        System.out.println(rows);
         return "index";
     }
 }
