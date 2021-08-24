@@ -27,7 +27,7 @@ public class PdfConvert {
     public void createPDF() {
         try {
             Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream("D:\\exchangeRate.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("D:\\exchangeRate2.pdf"));
 
             BaseFont baseFont = BaseFont.createFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             Font font = new Font(baseFont,8, Font.NORMAL);

@@ -31,13 +31,6 @@ public class Controller {
         model.addAttribute("exchangeRate", exchangeRateService.findByDate(date).getExchangeRate());
         model.addAttribute("min", exchangeRateService.getMin());
         model.addAttribute("max", exchangeRateService.getMax());
-        List<SingleRate> list = exchangeRateService.listSingleRate();
-        PdfConvert pdfConvert = new PdfConvert(list);
-        try {
-            pdfConvert.createPDF();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
         return "index";
     }
 
